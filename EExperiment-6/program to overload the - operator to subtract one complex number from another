@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+class complex {
+    //private data members
+    int real, img;
+
+public:
+   //default constructor
+    complex() {
+        real = 0;
+        img = 0;
+    }
+
+    // Parameterized Constructor
+    complex(int r, int i) {
+        real = r;
+        img = i;
+    }
+
+    // Display Function
+    void display(){
+        if (img >= 0)
+            cout << real << " + " << img << "i";
+        else
+            cout << real << " - " << -img << "i";
+    }
+
+    // Operator Overloading Declaration
+    complex operator-(complex c1);
+};
+
+// Operator Overloading Definition
+complex complex::operator-(complex c1) {
+    complex sub;  //Temporary object to store the result of the subtraction
+    sub.real = real - c1.real;  // Subtract real parts
+    sub.img = img - c1.img;     // Subtract imaginary parts
+    return sub; // Returns the final answer
+}
+
+int main() {
+    
+    complex c1(2, 6), c2(4, 11), c3;
+    
+    c3 = c2 - c1;
+    
+    cout << "The subtraction is: ";
+    c3.display();
+
+    
+    return 0;
+}
