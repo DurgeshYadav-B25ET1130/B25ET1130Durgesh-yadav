@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class String
+{
+    string str;
+
+public:
+    // Parameterized constructor
+    String(string s)
+    {
+        str = s;
+    }
+
+    // Accept function
+    void Accept()
+    {
+        cout << "Enter a string: ";
+        getline(cin, str);
+    }
+
+    // Display function
+    void Display()
+    {
+        cout << "String is: " << str << endl;
+    }
+};
+
+int main()
+{
+    string s;
+
+    cout << "Enter initial string: ";
+    getline(cin, s);
+
+    // Calling parameterized constructor
+    String obj(s);
+
+    // Accept and display
+    obj.Accept();
+    obj.Display();
+
+    return 0;
+}
