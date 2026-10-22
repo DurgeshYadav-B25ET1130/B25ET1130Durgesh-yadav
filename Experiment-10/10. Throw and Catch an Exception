@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int quantity;
+
+    // Input product quantity
+    cout << "Enter product quantity: ";
+    cin >> quantity;
+
+    try
+    {
+        // Throw an exception if quantity is zero or negative
+        if (quantity <= 0)
+        {
+            throw quantity;
+        }
+
+        cout << "Product quantity is valid: " << quantity << endl;
+    }
+    catch (int q)
+    {
+        // Catch and handle the exception
+        cout << "Exception caught: Product quantity cannot be zero or negative." << endl;
+    }
+
+    return 0;
+}
