@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+// Base class to store employee basic information
+class Employee
+{
+protected:
+    int id;
+    string name;
+
+public:
+    // Function to input basic information
+    void getBasicInfo()
+    {
+        cout << "Enter Employee ID: ";
+        cin >> id;
+
+        cout << "Enter Employee Name: ";
+        cin >> name;
+    }
+};
+
+// Base class to store employee experience information
+class Experience
+{
+protected:
+    int years;
+
+public:
+    // Function to input work experience
+    void getExperience()
+    {
+        cout << "Enter Years of Experience: ";
+        cin >> years;
+    }
+};
+
+// Derived class inheriting from both Employee and Experience
+class SeniorEmployee : public Employee, public Experience
+{
+public:
+    // Function to check eligibility for a senior position
+    void checkEligibility()
+    {
+        if (years >= 5)
+        {
+            cout << "\nEmployee is eligible for a senior position.";
+        }
+        else
+        {
+            cout << "\nEmployee is not eligible for a senior position.";
+        }
+    }
+
+    // Function to display employee details
+    void display()
+    {
+        cout << "\n\n--- Employee Details ---" << endl;
+        cout << "Employee ID: " << id << endl;
+        cout << "Employee Name: " << name << endl;
+        cout << "Years of Experience: " << years << endl;
+    }
+};
+
+int main()
+{
+    // Create an object of the derived class
+    SeniorEmployee e;
+
+    // Input employee information
+    e.getBasicInfo();
+    e.getExperience();
+
+    // Display details and check eligibility
+    e.display();
+    e.checkEligibility();
+
+    return 0;
+}
