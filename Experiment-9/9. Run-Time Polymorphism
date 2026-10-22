@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Appliance
+{
+public:
+    // Virtual function to demonstrate run-time polymorphism
+    virtual void operate()
+    {
+        cout << "Appliance is operating." << endl;
+    }
+};
+
+// Derived class Fan
+class Fan : public Appliance
+{
+public:
+    // Override the base class function
+    void operate() override
+    {
+        cout << "Fan is rotating." << endl;
+    }
+};
+
+// Derived class WashingMachine
+class WashingMachine : public Appliance
+{
+public:
+    // Override the base class function
+    void operate() override
+    {
+        cout << "Washing machine is washing clothes." << endl;
+    }
+};
+
+int main()
+{
+    // Create objects of derived classes
+    Fan f;
+    WashingMachine w;
+
+    // Base class pointer
+    Appliance *ptr;
+
+    // Pointer refers to Fan object
+    ptr = &f;
+    ptr->operate();
+
+    // Pointer refers to WashingMachine object
+    ptr = &w;
+    ptr->operate();
+
+    return 0;
+}
